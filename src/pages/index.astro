@@ -12,6 +12,14 @@ const year = new Date().getFullYear();
     }
   </script>
   <link slot="head" rel="preload" href="/media/mason.mp4" as="video" type="video/mp4" />
+  <link
+    slot="head"
+    rel="preload"
+    href="/fonts/manufacturing-consent.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
 
   <main class="home">
     <div class="mark" role="img" aria-label="Whitemason 로고: 망치와 정으로 돌을 다듬는 석공">
@@ -150,11 +158,11 @@ const year = new Date().getFullYear();
 
   .name {
     margin: 12px 0 0;
-    font-family: var(--font-serif);
-    font-size: 48px;
-    font-weight: 600;
+    font-family: var(--font-wordmark);
+    font-size: 56px;
+    font-weight: 400;
     line-height: 1.08;
-    letter-spacing: -0.003em;
+    letter-spacing: 0;
   }
 
   .apps {
@@ -281,7 +289,7 @@ const year = new Date().getFullYear();
     }
 
     .name {
-      font-size: 40px;
+      font-size: 46px;
       line-height: 1.1;
     }
 

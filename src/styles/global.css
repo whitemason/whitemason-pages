@@ -12,11 +12,19 @@
     sans-serif;
   --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Apple SD Gothic Neo',
     'Noto Sans KR', sans-serif;
-  /* New York은 Apple 기기에서 ui-serif로만 쓸 수 있다. 그 밖의 환경은 비슷한 세리프로 대신한다. */
-  --font-serif: ui-serif, 'New York', 'Iowan Old Style', Georgia, serif;
+  --font-wordmark: 'Manufacturing Consent', ui-serif, Georgia, serif;
   --ease: cubic-bezier(0.65, 0, 0.35, 1);
 
   color-scheme: light;
+}
+
+/* 워드마크 전용. "Whitemason" 글자만 남긴 subset이다. 라이선스: /fonts/OFL.txt */
+@font-face {
+  font-family: 'Manufacturing Consent';
+  src: url('/fonts/manufacturing-consent.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
 }
 
 *,
