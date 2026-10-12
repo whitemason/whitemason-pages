@@ -5,17 +5,11 @@ const year = new Date().getFullYear();
 ---
 
 <Base>
-  <!-- 첫 페인트 전에 인트로 여부를 정한다. 세션당 한 번, 동작 줄이기 설정이면 건너뛴다. -->
+  <!-- 첫 페인트 전에 인트로 여부를 정한다. 페이지를 열 때마다 재생하고, 동작 줄이기 설정이면 건너뛴다. -->
   <script is:inline slot="head">
-    (() => {
-      let seen = false;
-      try {
-        seen = sessionStorage.getItem('wm:intro') === '1';
-      } catch {}
-      if (!seen && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.documentElement.classList.add('intro');
-      }
-    })();
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('intro');
+    }
   </script>
   <link slot="head" rel="preload" href="/media/mason.mp4" as="video" type="video/mp4" />
 
@@ -89,9 +83,6 @@ const year = new Date().getFullYear();
       const finish = () => {
         if (done) return;
         done = true;
-        try {
-          sessionStorage.setItem('wm:intro', '1');
-        } catch {}
         if (!video.ended) {
           video.pause();
           if (video.readyState > 0 && video.duration) video.currentTime = video.duration;
