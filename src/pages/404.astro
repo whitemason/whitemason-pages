@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="페이지를 찾을 수 없어요 · Whitemason">
+  <main class="missing">
+    <img src="/media/mason-end.png" width="160" height="160" alt="" />
+    <h1>페이지를 찾을 수 없어요.</h1>
+    <p>주소가 바뀌었거나 없는 페이지예요.</p>
+    <a href="/">Whitemason 홈으로 ›</a>
+  </main>
+</Base>
+
+<style>
+  .missing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: max(64px, 14vh) 16px 48px;
+    text-align: center;
+  }
+
+  img {
+    mix-blend-mode: multiply;
+  }
+
+  h1 {
+    margin: 16px 0 0;
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.125;
+  }
+
+  p {
+    margin: 8px 0 16px;
+    color: var(--label-2);
+  }
+</style>
