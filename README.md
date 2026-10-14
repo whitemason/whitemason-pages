@@ -20,7 +20,4 @@ npm run dev
 
 `main`에 push하면 `.github/workflows/deploy.yml`이 빌드해 GitHub Pages로 배포한다.
 
-1. 저장소 Settings › Pages › Source를 **GitHub Actions**로 설정
-2. DNS에서 `whitemason.club` apex A 레코드를 GitHub Pages 주소로 변경
-   `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-3. Settings › Pages › Custom domain에 `whitemason.club` 입력 후 **Enforce HTTPS** 켜기
+DNS · 도메인 · HTTPS 설정과 점검 방법은 [AGENTS.md](AGENTS.md)를 참고한다.
