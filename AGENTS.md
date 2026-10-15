@@ -31,9 +31,6 @@ public/media/             로고 영상(mason.mp4), 포스터, Casebook 아이�
 public/fonts/             워드마크 폰트 subset + OFL.txt
 public/CNAME              whitemason.club (Actions 배포에서는 쓰이지 않음, 기록용)
 .github/workflows/deploy.yml   main push → GitHub Pages 배포
-tools/flatten-logo-video.swift 로고 영상 종이 평탄화 스크립트 (사용법: .claude/rules/media.md)
-.claude/rules/            경로별 규칙: design.md(화면 코드), media.md(영상 · 폰트 파일)
-.claude/skills/           점검 절차: dns-change-check, pages-cert-check
 ```
 
 ## 배포
