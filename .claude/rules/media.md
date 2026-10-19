@@ -1,11 +1,10 @@
 ---
 paths:
   - "public/media/**"
-  - "public/fonts/**"
   - "tools/**"
 ---
 
-# 로고 영상 · 폰트 파일 규칙
+# 로고 영상 · 워드마크 이미지 규칙
 
 ## 로고 영상 (`public/media/mason.mp4`)
 - 원본 영상(640×640, 4초)은 저장소에 없다. 다시 가공하려면 사용자에게 원본을 받는다.
@@ -41,9 +40,19 @@ og=Image.new('RGB',(1200,630),bg); og.paste(logo.resize((560,560), Image.LANCZOS
 - `mason-start.png`는 인트로 시작 전 포스터, `mason-end.png`는 인트로가 끝난 뒤와 동작 줄이기 설정에서 보이는 정지 화면이다. 영상을 바꾸면 둘 다 함께 바꾼다.
 - 로고만 바뀌고 영상이 그대로면 아이콘 · OG 단계만 다시 하면 된다. 이때도 스크립트는 영상 인자가 필요하므로 지금 원본 영상을 함께 넘기고, 출력 mp4는 버린다.
 
-## 워드마크 폰트 (`public/fonts/manufacturing-consent.woff2`)
-- SIL OFL 1.1. `OFL.txt`를 함께 둔다.
-- "Whitemason" 글자만 남긴 subset이다. 워드마크 글자를 바꾸면 다시 만든다:
-  `pyftsubset ManufacturingConsent-Regular.ttf --text="<워드마크>" --layout-features='*' --flavor=woff2 --output-file=public/fonts/manufacturing-consent.woff2`
-  (fonttools, brotli 필요. 원본 TTF는 사용자에게 받는다)
-- 받은 zip이나 폰트 파일은 빈 폴더에 따로 풀고 라이선스부터 확인한다.
+## 손글씨 워드마크 (`public/media/wordmark.webp`, `wordmark@2x.webp`)
+- 사용자가 준 흰 바탕 검정 글씨 이미지(2000×667)에서 만들었다. 원본은 저장소에 없으니 다시 만들려면 사용자에게 받는다.
+- 흰 바탕을 투명으로 바꾸고 밝기를 알파로 옮겨 가장자리를 살린다. 잉크색은 `#111`. 글자 영역만 잘라(여백 6px) 240px · 480px 너비의 무손실 WebP로 저장한다.
+
+```bash
+python3 -c "
+from PIL import Image; import sys
+g=Image.open(sys.argv[1]).convert('L')
+a=g.point(lambda v: 0 if v>=240 else 255 if v<=30 else round((240-v)/210*255))
+b=a.getbbox(); p=6; a=a.crop((max(b[0]-p,0),max(b[1]-p,0),min(b[2]+p,g.width),min(b[3]+p,g.height)))
+for w,n in [(240,'wordmark.webp'),(480,'wordmark@2x.webp')]:
+    m=a.resize((w,round(w*a.height/a.width)), Image.LANCZOS)
+    Image.merge('RGBA',(Image.new('L',m.size,17),)*3+(m,)).save('public/media/'+n, lossless=True, quality=100, method=6)" <원본 워드마크 이미지>
+```
+
+- 크기를 바꾸면 `src/pages/index.astro`의 `width` · `height` 속성과 `.name img` 너비(데스크톱 240px, 휴대폰 200px)도 함께 맞춘다.

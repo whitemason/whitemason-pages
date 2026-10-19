@@ -4,7 +4,7 @@ Whitemason 스튜디오 웹사이트 https://whitemason.club 의 저장소. Astr
 
 ## 이 저장소가 다루는 것 / 다루지 않는 것
 
-- 다룬다: `whitemason.club` 메인 페이지 한 장과 404 페이지, 로고 애니메이션, 폰트, 아이콘.
+- 다룬다: `whitemason.club` 메인 페이지 한 장과 404 페이지, 로고 애니메이션, 손글씨 워드마크, 아이콘.
 - **다루지 않는다: `casebook.whitemason.club`.** Casebook 문서 사이트는 별도 저장소 `whitemason/casebook-pages`에 있다.
   App Store Connect의 처리방침 · 지원 · 마케팅 URL이 그 주소를 가리키므로 이 저장소 작업 중에 그 사이트나 DNS 레코드를 바꾸지 않는다.
 - 조직 사이트 저장소 `whitemason/whitemason.github.io`는 없다. 만들면 casebook CNAME 대상(`whitemason.github.io`)에 영향이 갈 수 있으니 사용자 결정을 받은 뒤에만 만든다.
@@ -26,9 +26,8 @@ npm run preview    # dist/ 미리보기
 src/pages/index.astro     메인 페이지 (인트로 스크립트, 페이지 스타일)
 src/pages/404.astro       404 페이지
 src/layouts/Base.astro    <head> 공통 (title, description, OG, 아이콘)
-src/styles/global.css     색 · 폰트 토큰, @font-face
-public/media/             로고 영상(mason.mp4), 포스터, Casebook 아이콘
-public/fonts/             워드마크 폰트 subset + OFL.txt
+src/styles/global.css     색 · 폰트 토큰
+public/media/             로고 영상(mason.mp4), 포스터, 손글씨 워드마크, Casebook 아이콘
 public/CNAME              whitemason.club (Actions 배포에서는 쓰이지 않음, 기록용)
 .github/workflows/deploy.yml   main push → GitHub Pages 배포
 ```
