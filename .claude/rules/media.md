@@ -55,4 +55,5 @@ for w,n in [(240,'wordmark.webp'),(480,'wordmark@2x.webp')]:
     Image.merge('RGBA',(Image.new('L',m.size,17),)*3+(m,)).save('public/media/'+n, lossless=True, quality=100, method=6)" <원본 워드마크 이미지>
 ```
 
-- 크기를 바꾸면 `src/pages/index.astro`의 `width` · `height` 속성과 `.name img` 너비(데스크톱 240px, 휴대폰 200px)도 함께 맞춘다.
+- 화면 크기 기준: 워드마크 글자 범위가 로고 그림의 먹 범위와 같은 폭이 되게 하고, 가운데 정렬한다.
+  (mason-end 먹 범위 517/640, 워드마크 글자 범위 474/480). `.mark` 너비가 바뀌면 `.name img` 너비와 `src/pages/index.astro`의 `width` · `height` 속성을 이 비율로 다시 계산한다.
