@@ -34,8 +34,8 @@ const year = new Date().getFullYear();
       <img
         src="/media/wordmark.webp"
         srcset="/media/wordmark.webp 1x, /media/wordmark@2x.webp 2x"
-        width="240"
-        height="64"
+        width="180"
+        height="48"
         alt="Whitemason"
       />
     </h1>
@@ -167,8 +167,9 @@ const year = new Date().getFullYear();
     line-height: 0;
   }
 
+  /* 글자 가로 범위(이미지의 474/480)가 로고 그림의 먹 범위(.mark의 517/640)와 같은 폭이 되게 한다. */
   .name img {
-    width: 240px;
+    width: 180px;
     height: auto;
   }
 
@@ -296,7 +297,7 @@ const year = new Date().getFullYear();
     }
 
     .name img {
-      width: 200px;
+      width: 144px;
     }
 
     .apps {
