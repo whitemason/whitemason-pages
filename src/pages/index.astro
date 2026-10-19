@@ -117,13 +117,18 @@ const year = new Date().getFullYear();
       const start = () => {
         if (document.hidden) return;
         document.removeEventListener('visibilitychange', start);
-        // 느린 네트워크나 자동재생 차단에서도 화면이 멈춰 있지 않게 한다.
+        // 느린 네트워크에서도 화면이 멈춰 있지 않게 한다.
         const stall = setTimeout(finish, 2500);
         video.addEventListener('playing', () => {
           clearTimeout(stall);
           setTimeout(finish, (video.duration || 4) * 1000 + 1000);
         });
-        video.play().catch(finish);
+        // 저전력 모드 등으로 자동재생이 막히면 첫 프레임 포스터를 가운데에 잠시 보여 준 뒤 제자리로 옮긴다.
+        // 바로 finish하면 가운데 위치가 한 번도 그려지지 않아 전환이 보이지 않는다.
+        video.play().catch(() => {
+          clearTimeout(stall);
+          setTimeout(finish, 1200);
+        });
       };
       document.addEventListener('visibilitychange', start);
       start();
