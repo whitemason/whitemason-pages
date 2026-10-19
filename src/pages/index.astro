@@ -54,6 +54,25 @@ const year = new Date().getFullYear();
           </div>
         </div>
       </article>
+      <article class="app">
+        <img
+          class="icon-shaped"
+          src="/media/keystone-icon.webp"
+          srcset="/media/keystone-icon.webp 1x, /media/keystone-icon@2x.webp 2x"
+          width="64"
+          height="64"
+          alt=""
+        />
+        <div class="app-text">
+          <h3>Keystone</h3>
+          <p>App Store 심사 준비를 한곳에서.</p>
+          <p class="platforms">iPhone · iPad · Mac</p>
+          <div class="app-links">
+            <a href="https://keystone.whitemason.club">웹사이트 ›</a>
+            <span class="soon">App Store 출시 준비 중</span>
+          </div>
+        </div>
+      </article>
     </section>
   </main>
 
@@ -173,9 +192,13 @@ const year = new Date().getFullYear();
     height: auto;
   }
 
+  /* 앱 카드는 데스크톱에서 같은 높이로 나란히, 휴대폰에서는 세로로 쌓는다. */
   .apps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
     width: 100%;
-    max-width: 440px;
+    max-width: 900px;
     margin-top: 48px;
   }
 
@@ -195,6 +218,12 @@ const year = new Date().getFullYear();
     height: 64px;
     border-radius: 14px;
     box-shadow: 0 0 0 0.5px var(--separator);
+  }
+
+  /* Icon Composer에서 내보낸 아이콘은 모서리와 테두리가 이미 그려져 있어 CSS 모서리 · 테두리를 씌우지 않는다. */
+  .app img.icon-shaped {
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .app-text {
@@ -244,6 +273,12 @@ const year = new Date().getFullYear();
   .pill:hover {
     background: #333336;
     text-decoration: none;
+  }
+
+  /* 아직 App Store에 없는 앱. 버튼처럼 보이지 않게 회색 글자로만 둔다. */
+  .soon {
+    color: var(--label-3);
+    font-size: 14px;
   }
 
   .footer {
@@ -301,6 +336,9 @@ const year = new Date().getFullYear();
     }
 
     .apps {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+      max-width: 440px;
       margin-top: 36px;
     }
   }
