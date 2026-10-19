@@ -12,14 +12,6 @@ const year = new Date().getFullYear();
     }
   </script>
   <link slot="head" rel="preload" href="/media/mason.mp4" as="video" type="video/mp4" />
-  <link
-    slot="head"
-    rel="preload"
-    href="/fonts/manufacturing-consent.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
 
   <main class="home">
     <div class="mark" role="img" aria-label="Whitemason 로고: 망치와 정으로 돌을 다듬는 석공">
@@ -38,7 +30,15 @@ const year = new Date().getFullYear();
       ></video>
     </div>
 
-    <h1 class="name reveal" style="--i: 0">Whitemason</h1>
+    <h1 class="name reveal" style="--i: 0">
+      <img
+        src="/media/wordmark.webp"
+        srcset="/media/wordmark.webp 1x, /media/wordmark@2x.webp 2x"
+        width="240"
+        height="64"
+        alt="Whitemason"
+      />
+    </h1>
 
     <section class="apps reveal" style="--i: 1" aria-labelledby="apps-title">
       <h2 id="apps-title" class="sr-only">앱</h2>
@@ -156,13 +156,15 @@ const year = new Date().getFullYear();
     pointer-events: none;
   }
 
+  /* 손글씨 워드마크. 종이를 투명하게 뺀 이미지라 배경색 위에 그대로 얹힌다. */
   .name {
-    margin: 12px 0 0;
-    font-family: var(--font-wordmark);
-    font-size: 56px;
-    font-weight: 400;
-    line-height: 1.08;
-    letter-spacing: 0;
+    margin: 16px 0 0;
+    line-height: 0;
+  }
+
+  .name img {
+    width: 240px;
+    height: auto;
   }
 
   .apps {
@@ -288,9 +290,8 @@ const year = new Date().getFullYear();
       width: 176px;
     }
 
-    .name {
-      font-size: 46px;
-      line-height: 1.1;
+    .name img {
+      width: 200px;
     }
 
     .apps {
