@@ -21,3 +21,7 @@ npm run dev
 `main`에 push하면 `.github/workflows/deploy.yml`이 빌드해 GitHub Pages로 배포한다.
 
 DNS · 도메인 · HTTPS 설정과 점검 방법은 [AGENTS.md](AGENTS.md)를 참고한다.
+
+## 라이선스
+
+코드는 MIT 라이선스(LICENSE)를 따릅니다. 로고 · 로고 애니메이션 · 워드마크 · 앱 아이콘 · 그림과 글은 Whitemason의 저작물로 MIT 라이선스에 포함되지 않으며, 모든 권리를 보유합니다(All rights reserved). (이 저장소에서는 `public/media/`와 `public/`의 favicon · 아이콘 · OG 이미지)
