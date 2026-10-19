@@ -41,18 +41,22 @@ og=Image.new('RGB',(1200,630),bg); og.paste(logo.resize((560,560), Image.LANCZOS
 - 로고만 바뀌고 영상이 그대로면 아이콘 · OG 단계만 다시 하면 된다. 이때도 스크립트는 영상 인자가 필요하므로 지금 원본 영상을 함께 넘기고, 출력 mp4는 버린다.
 
 ## 손글씨 워드마크 (`public/media/wordmark.webp`, `wordmark@2x.webp`)
-- 사용자가 준 흰 바탕 검정 글씨 이미지(2000×667)에서 만들었다. 원본은 저장소에 없으니 다시 만들려면 사용자에게 받는다.
-- 흰 바탕을 투명으로 바꾸고 밝기를 알파로 옮겨 가장자리를 살린다. 잉크색은 `#111`. 글자 영역만 잘라(여백 6px) 240px · 480px 너비의 무손실 WebP로 저장한다.
+- 사용자가 준 흰 바탕 붓글씨 이미지(2000×667, 회색 먹)에서 만들었다. 원본은 저장소에 없으니 다시 만들려면 사용자에게 받는다.
+- 먹색은 바꾸지 않는다. 가장 진한 먹(밝기 41) 한 색으로 고정하고, 원본 밝기를 알파로 옮긴다.
+  흰 바탕에 다시 얹으면 원본과 같은 회색이 되고, 옅은 붓 결은 반투명으로 남는다. 색이 한 가지라 줄여도 테두리에 흰 띠가 생기지 않는다.
+- 밝기 251 이상은 종이로 보고 투명하게 한다(글자 밖 종이 잡티가 251). 글자 영역만 잘라(여백 6px) 240px · 480px 너비의 무손실 WebP로 저장한다.
+- 원본이 바뀌면 먼저 가장 진한 먹 값과 종이 잡티 값을 다시 재서 `INK` · `PAPER`를 맞춘다.
 
 ```bash
 python3 -c "
 from PIL import Image; import sys
+INK, PAPER = 41, 251
 g=Image.open(sys.argv[1]).convert('L')
-a=g.point(lambda v: 0 if v>=240 else 255 if v<=30 else round((240-v)/210*255))
+a=g.point(lambda v: 0 if v>=PAPER else 255 if v<=INK else round((PAPER-v)/(PAPER-INK)*255))
 b=a.getbbox(); p=6; a=a.crop((max(b[0]-p,0),max(b[1]-p,0),min(b[2]+p,g.width),min(b[3]+p,g.height)))
 for w,n in [(240,'wordmark.webp'),(480,'wordmark@2x.webp')]:
     m=a.resize((w,round(w*a.height/a.width)), Image.LANCZOS)
-    Image.merge('RGBA',(Image.new('L',m.size,17),)*3+(m,)).save('public/media/'+n, lossless=True, quality=100, method=6)" <원본 워드마크 이미지>
+    Image.merge('RGBA',(Image.new('L',m.size,INK),)*3+(m,)).save('public/media/'+n, lossless=True, quality=100, method=6)" <원본 워드마크 이미지>
 ```
 
 - 화면 크기 기준: 워드마크 글자 범위가 로고 그림의 먹 범위와 같은 폭이 되게 하고, 가운데 정렬한다.
