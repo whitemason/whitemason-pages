@@ -73,6 +73,25 @@ const year = new Date().getFullYear();
           </div>
         </div>
       </article>
+      <article class="app">
+        <img
+          class="icon-shaped"
+          src="/media/whitebell-icon.png"
+          srcset="/media/whitebell-icon.png 1x, /media/whitebell-icon@2x.png 2x"
+          width="64"
+          height="64"
+          alt=""
+        />
+        <div class="app-text">
+          <h3>Whitebell</h3>
+          <p>병실에서 간호사에게 보내는 요청을 한곳에서. 급하면 콜벨을 먼저 눌러요.</p>
+          <p class="platforms">iPhone</p>
+          <div class="app-links">
+            {/* 웹사이트 › 링크(https://whitemason.club/whitebell)는 그 페이지가 게시된 뒤에 넣는다. */}
+            <span class="pill off">TestFlight 곧 공개</span>
+          </div>
+        </div>
+      </article>
     </section>
   </main>
 
@@ -273,6 +292,13 @@ const year = new Date().getFullYear();
   .pill:hover {
     background: #333336;
     text-decoration: none;
+  }
+
+  /* 아직 눌러도 갈 곳이 없는 캡슐(공개 링크가 생기면 <a class="pill">로 바꾼다). 글자 대비는 4.5:1 이상. */
+  .pill.off {
+    background: #e9e8e3;
+    color: #5a5a5f;
+    cursor: default;
   }
 
   .footer {
