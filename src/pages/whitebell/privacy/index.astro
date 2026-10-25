@@ -1,0 +1,9 @@
+---
+// 본문은 src/content/whitebell/privacy.html(법률 확정본)에서 읽는다. 이 파일은 바꾸지 않고 그 HTML만 교체한다.
+import Legal from '../../../layouts/Legal.astro';
+import body from '../../../content/whitebell/privacy.html?raw';
+---
+
+<Legal title="Whitebell 개인정보 처리방침">
+  <Fragment set:html={body} />
+</Legal>

@@ -1,0 +1,9 @@
+---
+// 본문은 src/content/whitebell/support.html(확정본)에서 읽는다.
+import Legal from '../../../layouts/Legal.astro';
+import body from '../../../content/whitebell/support.html?raw';
+---
+
+<Legal title="Whitebell 지원">
+  <Fragment set:html={body} />
+</Legal>
