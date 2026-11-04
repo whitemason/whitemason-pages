@@ -1,3 +1,13 @@
+/* Windows 등 Apple 글꼴이 없는 기기용 대체 글꼴. 애플 기기에서는 시스템 글꼴이 먼저 잡혀 내려받지 않는다.
+   Pretendard는 SIL OFL 1.1 라이선스이며 우리 서버에서 직접 제공한다(/fonts/PRETENDARD-LICENSE.txt). */
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/PretendardVariable.woff2') format('woff2-variations');
+}
+
 /* 색은 로고의 종이색 하나와 글자 검정·회색 단계만 쓴다. */
 :root {
   --bg: #f8f7f3;
@@ -8,10 +18,10 @@
   --border: #d2d2d7;
   --link: #1d1d1f;
 
-  --font-text: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Apple SD Gothic Neo', 'Noto Sans KR',
-    sans-serif;
-  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Apple SD Gothic Neo',
+  --font-text: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Apple SD Gothic Neo', 'Pretendard Variable',
     'Noto Sans KR', sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Apple SD Gothic Neo',
+    'Pretendard Variable', 'Noto Sans KR', sans-serif;
   --ease: cubic-bezier(0.65, 0, 0.35, 1);
 
   color-scheme: light;
