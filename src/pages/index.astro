@@ -88,6 +88,8 @@ const year = new Date().getFullYear();
           <p class="platforms">iPhone</p>
           <div class="app-links">
             {/* 웹사이트 › 링크(https://whitemason.club/whitebell)는 그 페이지가 게시된 뒤에 넣는다. */}
+            <a href="https://whitebell.whitemason.club">병동 웹 ›</a>
+            <span class="note">병원 직원용 · 로그인 필요</span>
             <span class="pill off">TestFlight 곧 공개</span>
           </div>
         </div>
@@ -303,6 +305,11 @@ const year = new Date().getFullYear();
     gap: 8px 20px;
     margin-top: 14px;
     font-size: 15px;
+  }
+
+  .app-links .note {
+    color: var(--label-3);
+    font-size: 13px;
   }
 
   .pill {
