@@ -67,9 +67,10 @@ const year = new Date().getFullYear();
           <h3>Keystone</h3>
           <p>App Store 심사 준비를 한곳에서.</p>
           <p class="platforms">iPhone · iPad · Mac</p>
+          <p class="chart">출시 12시간 만에 차트 #53</p>
           <div class="app-links">
             <a href="https://keystone.whitemason.club">웹사이트 ›</a>
-            <a class="pill" href="https://testflight.apple.com/join/FAw87bVZ">TestFlight</a>
+            <a class="pill" href="https://apps.apple.com/kr/app/id6824511302">App Store</a>
           </div>
         </div>
       </article>
@@ -280,6 +281,14 @@ const year = new Date().getFullYear();
     font-size: 15px;
     line-height: 1.4;
     letter-spacing: -0.016em;
+  }
+
+  /* 출시 소식처럼 한 번 정해지면 바뀌지 않는 기록만 적는다. 날마다 바뀌는 지금 순위는 적지 않는다. */
+  .app .chart {
+    margin-top: 6px;
+    color: var(--label-2);
+    font-size: 13px;
+    font-weight: 500;
   }
 
   .app .platforms {
