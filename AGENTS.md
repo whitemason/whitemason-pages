@@ -5,9 +5,19 @@ Whitemason 스튜디오 웹사이트 https://whitemason.club 의 저장소. Astr
 ## 이 저장소가 다루는 것 / 다루지 않는 것
 
 - 다룬다: `whitemason.club` 메인 페이지 한 장과 404 페이지, 로고 애니메이션, 손글씨 워드마크, 아이콘.
+- 다룬다: Whitebell 개인정보 처리방침 · 지원 페이지(`/whitebell/privacy`, `/whitebell/support`). 아래 "Whitebell 페이지" 참고.
 - **다루지 않는다: `casebook.whitemason.club`.** Casebook 문서 사이트는 별도 저장소 `whitemason/casebook-pages`에 있다.
   App Store Connect의 처리방침 · 지원 · 마케팅 URL이 그 주소를 가리키므로 이 저장소 작업 중에 그 사이트나 DNS 레코드를 바꾸지 않는다.
 - 조직 사이트 저장소 `whitemason/whitemason.github.io`는 없다. 만들면 casebook CNAME 대상(`whitemason.github.io`)에 영향이 갈 수 있으니 사용자 결정을 받은 뒤에만 만든다.
+
+## Whitebell 페이지 (팀원 관리, 예외 아님)
+
+- `/whitebell/privacy`, `/whitebell/support`는 Whitemason 웹사이트의 **정식 페이지**다. 임시 페이지나 규칙 예외가 아니다.
+- 관리 주체는 사용자가 아니라 **Whitebell 팀원**이다. 이 페이지에 관한 결정은 모두 팀원이 정한다.
+  공개 연락처(`support.whitebell@whitemason.club`), 운영자 실명 표기, 처리방침 · 지원 문구가 모두 여기에 들어간다.
+- 파일: `src/pages/whitebell/privacy/index.astro`, `src/pages/whitebell/support/index.astro`, 본문 확정본 `src/content/whitebell/privacy.html`, `support.html`.
+- 팀원 결정 없이 이 페이지 내용을 고치지 않는다. 바꿀 점이 보이면 고치지 말고 팀원 쪽으로 전달한다.
+- 정리 · 점검 작업에서 이 페이지의 연락처 · 실명 · 문구를 "공개 금지 정보" 위반이나 미승인 변경으로 잡지 않는다.
 
 ## 명령
 
@@ -25,6 +35,7 @@ npm run preview    # dist/ 미리보기
 ```
 src/pages/index.astro     메인 페이지 (인트로 스크립트, 페이지 스타일)
 src/pages/404.astro       404 페이지
+src/pages/whitebell/      Whitebell 처리방침 · 지원 페이지 (팀원 관리, 본문은 src/content/whitebell/)
 src/layouts/Base.astro    <head> 공통 (title, description, OG, 아이콘)
 src/styles/global.css     색 · 폰트 토큰
 public/media/             로고 영상(mason.mp4), 포스터, 손글씨 워드마크, Casebook 아이콘
@@ -85,3 +96,4 @@ DNS는 사용자가 GoDaddy 화면에서 직접 바꾼다. 에이전트는 값�
 
 - 토큰, API key, 비밀 값, 개인 이메일 주소를 코드 · 커밋 · 문서에 쓰지 않는다.
 - 사이트에 공개하는 연락처는 `engineering@whitemason.club` 하나다.
+  Whitebell 페이지의 `support.whitebell@whitemason.club`과 운영자 실명은 팀원이 정한 정식 표기로, 이 규칙의 위반이 아니다.
