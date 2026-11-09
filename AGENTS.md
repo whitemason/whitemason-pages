@@ -65,9 +65,23 @@ DNS는 사용자가 GoDaddy 화면에서 직접 바꾼다. 에이전트는 값�
 | AAAA | `@` | `2606:50c0:8000::153` · `2606:50c0:8001::153` · `2606:50c0:8002::153` · `2606:50c0:8003::153` |
 | CNAME | `www` | `whitemason.github.io` |
 | CNAME | `casebook` | `whitemason.github.io` |
+| CNAME | `keystone` | `whitemason.github.io` |
+| CNAME | `whitebell` | `whitemason.github.io` |
+| CNAME | `nss` | `whitemason.github.io` |
+| CNAME | `okaynow` | `whitemason.github.io` |
 | TXT | `_github-pages-challenge-whitemason` | GitHub 조직 Pages 도메인 인증 값. 지우지 않는다 |
 | MX | `@` | `mx01.mail.icloud.com` · `mx02.mail.icloud.com` (iCloud+ 메일) |
 | TXT | `@` | SPF `v=spf1 include:icloud.com ~all`, `apple-domain=…` |
+
+하위 도메인 관리처(값은 2026-11-10 ns67 · ns68 조회로 확인). 이 저장소는 아래 사이트 내용을 다루지 않고, 레코드 값 확인만 한다.
+
+| 하위 도메인 | 관리 |
+|---|---|
+| `casebook.whitemason.club` | 별도 저장소 `whitemason/casebook-pages` |
+| `keystone.whitemason.club` | Keystone 웹사이트 세션 |
+| `whitebell.whitemason.club` | 팀원 (결정 615, Whitebell 페이지는 팀원이 정함) |
+| `nss.whitemason.club` | 팀원 |
+| `okaynow.whitemason.club` | "pleos - 앱 개발" 세션 |
 
 - GoDaddy의 "Parked" A 레코드나 Forwarding이 다시 생기면 GitHub 인증서 발급이 막힌다. 보이면 사용자에게 삭제를 요청한다.
 - 조회 절차와 보고 형식은 skill `dns-change-check`를 따른다.
